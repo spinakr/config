@@ -4,6 +4,7 @@ call plug#begin("~/.vim/plugged")
  Plug 'scrooloose/nerdtree'
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
+ Plug 'ggandor/leap.nvim'
 call plug#end()
 
 let mapleader=","
@@ -30,7 +31,6 @@ set ttyfast                 " Speed up scrolling in Vim
 set noswapfile            " disable creating swap file
 set splitbelow
 set splitright
-
 
 
 "Keymaps

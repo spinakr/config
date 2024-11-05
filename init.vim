@@ -5,7 +5,13 @@ call plug#begin("~/.vim/plugged")
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
  Plug 'ggandor/leap.nvim'
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-telescope/telescope-fzf-native.nvim'
+ Plug 'nvim-treesitter/nvim-treesitter'
+ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 call plug#end()
+
+lua require('leap').create_default_mappings()
 
 let mapleader=","
 set nocompatible            " disable compatibility to old-time vi
@@ -40,10 +46,9 @@ set splitright
 :vnoremap jk <Esc>
 :vnoremap kj <Esc>
 
-nnoremap <leader>d   :bd<cr>
-
-
 nnoremap <leader>n :NERDTreeToggle<CR> 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>

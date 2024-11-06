@@ -3,8 +3,10 @@ call plug#begin("~/.vim/plugged")
  Plug 'ryanoasis/vim-devicons'
  Plug 'scrooloose/nerdtree'
  Plug 'preservim/nerdcommenter'
- Plug 'mhinz/vim-startify'
  Plug 'ggandor/leap.nvim'
+ Plug 'nvim-tree/nvim-web-devicons' 
+ Plug 'lewis6991/gitsigns.nvim' 
+ Plug 'romgrk/barbar.nvim'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope-fzf-native.nvim'
  Plug 'nvim-treesitter/nvim-treesitter'
@@ -12,6 +14,7 @@ call plug#begin("~/.vim/plugged")
 call plug#end()
 
 lua require('leap').create_default_mappings()
+
 
 let mapleader=","
 set nocompatible            " disable compatibility to old-time vi
@@ -52,3 +55,11 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
+nnoremap <silent>    <C-p> <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <C-n> <Cmd>BufferNext<CR>
+nnoremap <leader>bp <Cmd>BufferPin<CR>
+nnoremap <leader>bb <Cmd>BufferPick<CR>
+nnoremap <leader>bc <Cmd>BufferClose<CR>
+nnoremap <leader>br <Cmd>BufferReopen<CR>
+nnoremap <leader>ba <Cmd>BufferCloseAllButCurrentOrPinned<CR>
